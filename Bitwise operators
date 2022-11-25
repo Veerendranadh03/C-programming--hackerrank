@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+//Complete the following function.
+
+
+void calculate_the_maximum(int n, int k) {
+  int a=1,b=2,j=0,A=0,O=0,X=0;
+  int m=(n>k)?n:k;
+  int l=(n>k)?k:n;
+  for(a=1,b=2; a<=k; a++,b++)
+  {
+      for(j=b; j<=m; j++)
+      {
+        if((a&j)<l && ((a&j)>A))
+            A=a&j;
+        if((a|j)<l && ((a|j)>O))
+            O=a|j;
+        if((a^j)<l && ((a^j)>X))
+            X=(a^j);    
+      } 
+  } 
+  printf("%d\n%d\n%d",A,O,X);
+}
+
+int main() {
+    int n, k;
+  
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
+ 
+    return 0;
+}
